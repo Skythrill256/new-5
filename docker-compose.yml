@@ -3,7 +3,7 @@ services:
   web:
     build: .
     ports:
-      - "8080:4173"
+      - "8080:80"
     network_mode: "host"
     environment:
       - NODE_ENV=production
