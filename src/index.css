@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+@import url('https://fonts.cdnfonts.com/css/alma-serif');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&display=swap');
+
+@font-face {
+  font-family: 'Brockmann';
+  src: url('/brockmann-medium-webfont.ttf') format('truetype'),
+       url('/brockmann-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville Classico Std Roman';
+  src: url('/BaskervilleClassicoStd-Roman.woff2') format('woff2'),
+       url('/BaskervilleClassicoStd-Roman.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* Setting white background */
+    --foreground: 0 0% 10%; /* Dark gray for text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 0% 15%; /* Dark gray as primary */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 0% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 15%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 26.1%;
+    --sidebar-primary: 0 0% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 95.9%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 91%;
+    --sidebar-ring: 0 0% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 17.5%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 17.5%;
+    --muted-foreground: 0 0% 65.1%;
+
+    --accent: 0 0% 17.5%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 0% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 17.5%;
+    --input: 0 0% 17.5%;
+    --ring: 0 0% 83.9%;
+    
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 95.9%;
+    --sidebar-primary: 0 0% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15.9%;
+    --sidebar-accent-foreground: 0 0% 95.9%;
+    --sidebar-border: 0 0% 15.9%;
+    --sidebar-ring: 0 0% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-satoshi font-normal tracking-wide;
+    letter-spacing: 0.01em;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+  }
+}
+
+@layer components {
+  .text-mask-image {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 font-alma-serif;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 mt-4 max-w-3xl;
+  }
+
+  .card-shadow {
+    @apply shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+  
+  .button-primary {
+    @apply bg-mono-700 hover:bg-mono-800 text-white font-medium py-3 px-6 rounded-md transition-all duration-300 shadow-sm;
+  }
+
+  .button-secondary {
+    @apply bg-white border border-mono-200 hover:border-mono-300 text-mono-700 hover:bg-gray-50 font-medium py-3 px-6 rounded-md transition-all duration-300;
+  }
+  
+  .nav-link {
+    @apply relative text-mono-800 hover:text-mono-900 py-2 transition-colors duration-300;
+  }
+  
+  /* Hover underline animation */
+  .hover-underline-animation {
+    position: relative;
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Registry card hover effects */
+  .registry-card {
+    @apply transition-all duration-300 cursor-pointer;
+  }
+  
+  .registry-card:hover {
+    @apply shadow-hover transform -translate-y-1;
+  }
+  
+  .registry-card-active {
+    @apply shadow-pulse border-pulse-300;
+  }
+}
+
+.image-scale-in {
+  animation: scaleIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* For micro-interactions */
+.micro-interaction {
+  transition: all 0.2s ease;
+}
+
+.micro-interaction:hover {
+  transform: scale(1.01);
+}
+
+.soft-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Parallax effect */
+.parallax {
+  transform: translateY(var(--parallax-y, 0));
+  transition: transform 0.1s ease-out;
+}
